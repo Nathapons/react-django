@@ -1,0 +1,11 @@
+/* Add a black background color to the top navigation */
+.menu-bar {
+  overflow: hidden;
+  padding: 5px 16px;
+  border-bottom: 0.5px solid gray;
+}
+
+.haha {
+  width: 24%;
+  padding-right: 180px;
+}
