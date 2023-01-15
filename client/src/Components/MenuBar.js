@@ -6,7 +6,10 @@ export default function MenuBar() {
 
   return (
     <nav class="navbar navbar-expand-lg px-4" className="menu-bar">
-      <a href="/"><img src={logo} alt="Logo" className='haha'/></a>
+      <div style={{justifyContent: "space-between"}}>
+        <a href="/"><img src={logo} alt="Logo" className='haha'/></a>
+        <a href="/"><img src={logo} alt="Logo" className='haha'/></a>
+      </div>
     </nav>
   )
 }

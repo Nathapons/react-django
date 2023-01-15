@@ -1,14 +1,23 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Swal from 'sweetalert2'
+import { useHistory } from 'react-router-dom';
+
 
 import { postUrl } from '../endpoint'
 
 
 export default function PostForm() {
   const [post, setPost] = useState({title: '', content: '', author: ''})
+  const history = useHistory();
 
   const {title, content, author} = post
+
+  useEffect(() => {
+    if (post.submitted) {
+      history.push('/success');
+    }
+  }, [post, history]);
 
   const inputValue=name=>event=>{
     setPost({...post, [name]:event.target.value})
