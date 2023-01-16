@@ -32,7 +32,7 @@ export default function BlogTable() {
             {blogs.map((blog, index)=> (
                 <tr>
                     <th scope="row">{blog.id}</th>
-                    <td><p className='' to={`/post/${blog.id}`}>{blog.title}</p></td>
+                    <td><Link to={`/post/${blog.id}`}>{blog.title}</Link></td>
                     <td>{blog.content}</td>
                     <td>{blog.author}</td>
                     <td>{blog.created_at}</td>
