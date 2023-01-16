@@ -28,11 +28,10 @@ export default function PostForm() {
     navigate("/")
   }
 
-  const submitValue = async (event) => {
+  const submitValue = (event) => {
     event.preventDefault();
     const url = postUrl
-    await axios.post(url, post).then((res) => {
-      console.log('res',res)
+    axios.post(url, post).then((res) => {
       Swal.fire(
         'Good job!',
         'You clicked the button!',

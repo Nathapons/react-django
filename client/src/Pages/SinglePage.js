@@ -6,6 +6,7 @@ export default function SinglePage() {
   return (
     <div>
         <MenuBar />
+        <SingleData />
     </div>
   )
 }
