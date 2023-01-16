@@ -1,39 +1,49 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Swal from 'sweetalert2'
-import { useHistory, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { postUrl } from '../endpoint'
 
 
 export default function PostForm() {
   const [post, setPost] = useState({title: '', content: '', author: ''})
-  const navigate = useNavigate();
-  const history = useHistory();
+  // const history = useHistory();
+  const navigate = useNavigate()
 
   const {title, content, author} = post
 
-  useEffect(() => {
-    if (post.submitted) {
-      history.push('/success');
-    }
-  }, [post, history]);
+  // useEffect(() => {
+  //   if (post.submitted) {
+  //     history.push('/success');
+  //   }
+  // }, [post, history]);
 
   const inputValue=name=>event=>{
     setPost({...post, [name]:event.target.value})
   }
 
-  const submitValue = event=>{
+  const nav  = () => {
+    console.log('NAV')
+    navigate("/")
+  }
+
+  const submitValue = async (event) => {
     event.preventDefault();
     const url = postUrl
-    axios.post(url, post).then(
+    await axios.post(url, post).then((res) => {
+      console.log('res',res)
       Swal.fire(
         'Good job!',
         'You clicked the button!',
         'success'
-      ).then(
+      ).then(() => {
         setPost({title: '', content: '', author: ''})
-      )
+        nav()
+      })
+    
+    }
+      
     ).catch(err => {
         Swal.fire('แจ้งเตือน',err.response.data.error,'error')
       }
@@ -41,9 +51,9 @@ export default function PostForm() {
   }
 
   return (
-    <div class="container" onSubmit={submitValue}>
+    <div class="container" >
         <h1 class="h2 text-success">เขียนบทความ</h1>
-        <form>
+        <form onSubmit={submitValue}>
           <div class="form-group">
             <label class="fw-bold">ชื่อบทความ</label>
             <input type="text" class="form-control" value={title} onChange={inputValue("title")} />
@@ -57,7 +67,9 @@ export default function PostForm() {
             <input type="text" class="form-control" value={author} onChange={inputValue("author")} />
           </div>
           <br />
-          <input type="submit" value="บันทึก" class="btn btn-primary" onClick={() => {navigate('/')}}></input>
+          <button type="submit" value="บันทึก" class="btn btn-primary" 
+          // onClick={nav} 
+          ></button>
         </form>
     </div>
   )
