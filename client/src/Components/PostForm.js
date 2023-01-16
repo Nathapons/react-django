@@ -1,14 +1,14 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Swal from 'sweetalert2'
-import { useHistory } from 'react-router-dom';
-
+import { useHistory, useNavigate } from 'react-router-dom';
 
 import { postUrl } from '../endpoint'
 
 
 export default function PostForm() {
   const [post, setPost] = useState({title: '', content: '', author: ''})
+  const navigate = useNavigate();
   const history = useHistory();
 
   const {title, content, author} = post
@@ -57,7 +57,7 @@ export default function PostForm() {
             <input type="text" class="form-control" value={author} onChange={inputValue("author")} />
           </div>
           <br />
-          <input type="submit" value="บันทึก" class="btn btn-primary"></input>
+          <input type="submit" value="บันทึก" class="btn btn-primary" onClick={() => {navigate('/')}}></input>
         </form>
     </div>
   )
