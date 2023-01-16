@@ -13,8 +13,9 @@ export default function ApiRoute() {
   return (
     <BrowserRouter>
         <Switch>
-            <Route exact path="/" component={Main} />
-            <Route exact path="/post" component={PostPage} />
+            <Route path="/" exact component={Main} />
+            <Route path="/post" exact component={PostPage} />
+            <Route path="/post/:id" exact component={SinglePage} />
         </Switch>
     </BrowserRouter>
   )

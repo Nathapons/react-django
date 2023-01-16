@@ -96,7 +96,7 @@ DATABASES = {
         'CLIENT': {
             'host': 'mongodb+srv://nuthapon:8JdYwv0nCEfZ1lKo@djongo.hjjtjxg.mongodb.net/?retryWrites=true&w=majority',
             'name': 'postweb',
-            'authMechanism': 'SCRAM-SHA-1'        
+            # 'authMechanism': 'SCRAM-SHA-1'
         } 
     }
 }

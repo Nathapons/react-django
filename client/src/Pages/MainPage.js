@@ -8,8 +8,8 @@ export default function Main() {
       <MenuBar />
       <div class="container-md">
         <div>
-          <h3 class="text-right text-success">Blog list</h3>
-          <a href="/post" class="btn btn-success">Create</a>
+          <h3 class="text-right text-success" style={{marginTop: "20px"}}>Blog list</h3>
+          <a href="/post" class="btn btn-success" style={{marginTop: "10px"}}>Create</a>
         </div>
         <BlogTable />
       </div>

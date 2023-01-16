@@ -19,7 +19,7 @@ export default function BlogTable() {
     }, [])
 
     return (
-        <table class="table table-hover" style={{width: "70%"}}>
+        <table class="table table-hover" style={{marginTop: "20px"}}>
             <thead class="thead-dark">
                 <th scope="col">id</th>
                 <th scope="col">Title</th>
@@ -32,7 +32,7 @@ export default function BlogTable() {
             {blogs.map((blog, index)=> (
                 <tr>
                     <th scope="row">{blog.id}</th>
-                    <td><Link to='/1'>{blog.title}</Link></td>
+                    <td><p className='' to={`/post/${blog.id}`}>{blog.title}</p></td>
                     <td>{blog.content}</td>
                     <td>{blog.author}</td>
                     <td>{blog.created_at}</td>
