@@ -24,7 +24,6 @@ export default function PostForm() {
   }
 
   const nav  = () => {
-    console.log('NAV')
     navigate("/")
   }
 
@@ -66,9 +65,7 @@ export default function PostForm() {
             <input type="text" class="form-control" value={author} onChange={inputValue("author")} />
           </div>
           <br />
-          <button type="submit" value="บันทึก" class="btn btn-primary" 
-          // onClick={nav} 
-          ></button>
+          <button type="submit" value="บันทึก" class="btn btn-primary">Create</button>
         </form>
     </div>
   )
